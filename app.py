@@ -144,11 +144,18 @@ if mode == "Scopus Only":
         src = detect_source(df)
         st.info(f"Detected Source: **{src}**")
 
+        # --- Harmonize Scopus dataset ---
         df_h = harmonize_scopus(df)
+
         # --- Fix duplicate column names (important for Streamlit) ---
-df_h = df_h.loc[:, ~df_h.columns.duplicated()].copy()
+        if df_h.columns.duplicated().any():
+            st.warning("Duplicate column names detected — automatically fixed for display.")
+            df_h = df_h.loc[:, ~df_h.columns.duplicated()].copy()
+
+        # --- Display and allow download ---
         st.dataframe(df_h.head())
         download_dataframe(df_h)
+
 
 # --- WOS ONLY ---
 elif mode == "WoS Only":
@@ -537,4 +544,5 @@ else:
 
 st.markdown("---")
 st.caption("Developed by **Mahbub Hassan**, Chulalongkorn University © 2025")
+
 

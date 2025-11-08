@@ -1,0 +1,30 @@
+# --- Core Framework ---
+streamlit>=1.39.0
+
+# --- Data Handling ---
+pandas>=2.2.2
+numpy>=1.26.4
+
+# --- Visualization ---
+matplotlib>=3.8.4
+seaborn>=0.13.2
+plotly>=5.24.1
+networkx>=3.3
+geopandas>=1.0.1
+
+# --- Machine Learning & NLP ---
+scikit-learn>=1.5.2
+nltk>=3.9.1
+bertopic>=0.16.4
+umap-learn>=0.5.6
+hdbscan>=0.8.37
+
+# --- Report & Image Generation ---
+reportlab>=4.2.5
+pillow>=10.4.0
+kaleido>=0.2.1
+
+# --- Utilities ---
+python-dateutil>=2.9.0
+openpyxl>=3.1.5
+xlrd>=2.0.1

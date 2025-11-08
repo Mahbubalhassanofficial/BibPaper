@@ -145,6 +145,8 @@ if mode == "Scopus Only":
         st.info(f"Detected Source: **{src}**")
 
         df_h = harmonize_scopus(df)
+        # --- Fix duplicate column names (important for Streamlit) ---
+df_h = df_h.loc[:, ~df_h.columns.duplicated()].copy()
         st.dataframe(df_h.head())
         download_dataframe(df_h)
 
@@ -535,3 +537,4 @@ else:
 
 st.markdown("---")
 st.caption("Developed by **Mahbub Hassan**, Chulalongkorn University © 2025")
+
